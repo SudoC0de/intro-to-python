@@ -21,3 +21,7 @@ text = input("Enter the text to be formatted: ")
 # Lowercase: hello world
 # Title: Hello World
 # Lenght: 11
+print(f'Uppercase: {text.upper()}')
+print(f'Lowercase: {text.lower()}')
+print(f'Title: {text.title()}')
+print(f'Length: {len(text)}')
