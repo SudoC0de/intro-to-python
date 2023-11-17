@@ -1,0 +1,5 @@
+name = input('What is your name: ')
+age = input('What is your age: ')
+job_title = input('What is your job title: ')
+print(f'{name} is a {age} years old {job_title} of our company')
+print(f'In 10 years, {name} will be {int(age) + 10} years old')
