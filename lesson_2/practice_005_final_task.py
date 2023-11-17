@@ -12,3 +12,6 @@ entertainment = 200
 # Hint: to count the percentage of rent, count total monthly
 # expenses first, then divide expenses for rent by the total
 # expenses and multiply by 100.
+monthly_expenses = rent + utilities + groceries + entertainment
+rent_percent = rent / monthly_expenses * 100
+print(rent_percent)
