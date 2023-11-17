@@ -19,3 +19,5 @@ letter = input("Enter the letter to count: ")
 # Expected output:
 # I love REPLACED and dogs, but REPLACED are my favorite.
 # 3
+print(sentence.replace(new_word, 'REPLACED'))
+print(sentence.count(letter))
