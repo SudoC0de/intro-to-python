@@ -10,7 +10,7 @@
 # Example Input: "Alice"
 # Example Output: "Hello, Alice!"
 name = input("Enter yor name: ")
-print(f"????")
+print(f"Hello {name}")
 
 # ---------------------------------------------------------------------
 # Exercise 2: Greeting with User's Favorite Activity
@@ -23,7 +23,9 @@ print(f"????")
 # Name: Emily
 # Favorite Activity: hiking
 # Example Output: "Hello, Emily! Enjoy hiking!"
-
+username = input('Enter your name: ')
+user_activity = input('What is your favorite activity? ')
+print(f'Hello, {username}! Enjoy {user_activity}!')
 
 # ---------------------------------------------------------------------
 # Exercise 3: Membership Cards
@@ -37,7 +39,8 @@ print(f"????")
 # Example Input:
 # Name: Emily
 # Example Output: "Welcome, Emily! Your name in uppercase is: EMILY!"
-
+member_name = input('What is your name? ')
+print('Welcome {0}! Your name in uppercase is: {1}'.format(member_name,member_name.upper()))
 
 # ---------------------------------------------------------------------
 # Exercise 4: User Profile Creation
@@ -53,7 +56,13 @@ print(f"????")
 # Example Output:
 # Name: John Smith
 # Age: 28
-
+first_name = input('What is your first name? ')
+last_name = input('What is your last name? ')
+age = input('How old are you? ')
+print('''Name: {0}
+First Name: {1}
+Last Name: {2}
+Age: {3}'''.format(f'{first_name} {last_name}'.title(), first_name.upper(), last_name.upper(),age))
 
 # ---------------------------------------------------------------------
 # Exercise 5: Text message limits
@@ -64,7 +73,8 @@ print(f"????")
 # in the message, including spaces, and format the output using
 # an f-string. This character count will help users ensure their
 # messages fit within the allowed limit.
-
+message = input('Message: ')
+print(f'Number of characters in message: {len(message)}')
 
 # ---------------------------------------------------------------------
 # Exercise 6: Text Transformation Game
@@ -76,7 +86,16 @@ print(f"????")
 # Example Output: "H*ll*, w*rld!"
 sentence = input("Enter a sentence: ")
 transformed_sentence = sentence.replace('a', '*')
-
+transformed_sentence = transformed_sentence.replace('A','*')
+transformed_sentence = transformed_sentence.replace('e','*')
+transformed_sentence = transformed_sentence.replace('E','*')
+transformed_sentence = transformed_sentence.replace('i','*')
+transformed_sentence = transformed_sentence.replace('I','*')
+transformed_sentence = transformed_sentence.replace('o','*')
+transformed_sentence = transformed_sentence.replace('O','*')
+transformed_sentence = transformed_sentence.replace('u','*')
+transformed_sentence = transformed_sentence.replace('U','*')
+print(transformed_sentence)
 
 # ------------------------------# ---------------------------------------------------------------------
 # Exercise 7: Extracting Information
@@ -89,7 +108,10 @@ transformed_sentence = sentence.replace('a', '*')
 # Expected output:
 # Name: Lucy Smith
 # Age: 28
-
+data = 'lucy smith:28'
+start_index = (len(data) - 1) - 2
+print(f'''Name: {data[0:start_index:1]}
+Age: {data[(start_index + 1)::1]}''')
 
 # ---------------------------------------------------------------------
 # Exercise 8: Miles to Kilometers Conversion
@@ -105,7 +127,7 @@ transformed_sentence = sentence.replace('a', '*')
 # Input: float("1.23")
 # Output: 1.23
 miles = float(input("Enter distance in miles: "))
-
+print(f'{miles} is approximately {float(miles) * 1.6} kilometers')
 
 # ---------------------------------------------------------------------
 # Exercise 9: Workouts calculator
@@ -118,7 +140,11 @@ miles = float(input("Enter distance in miles: "))
 # motivational message using an f-string that encourages the user
 # to stay consistent and reach their fitness goals. Display the
 # motivational message to the user.
-
+cardio_minutes = input('How many minutes did you spend doing cardio? ')
+strength_minutes = input('How many minutes did you spend doing strength training? ')
+yoga_minutes = input('How many minutes did you spend doing yoga? ')
+total_minutes = int(cardio_minutes) + int(strength_minutes) + int(yoga_minutes)
+print(f'Great job! You have exercised a total of {total_minutes} minutes.')
 
 # ---------------------------------------------------------------------
 # Challenge 1 (OPTIONAL!): Reverse the negative integer -324 and keep
@@ -133,12 +159,14 @@ num_str = str(input_number)
 # http://bit.ly/3siP47n
 
 # (ADD YOUR CODE BELOW)
+reversed_str = num_str[len(num_str)::-1]
 
 # Add the negative symbol back to the reversed string
 reversed_num = int(num_str[0] + reversed_str)
 
 # Output the result
 # (ADD YOUR CODE BELOW)
+print(reversed_num)
 
 # ---------------------------------------------------------------------
 # Challenge 2 (OPTIONAL!): Formatting Average Speed
@@ -177,6 +205,6 @@ average_speed = miles / hours
 
 # Formatting and displaying the result
 # (Your code here)
-rounded_speed = ????
+rounded_speed = round(average_speed,1)
 
 print(f"The average speed is {rounded_speed} miles per hour")
