@@ -9,3 +9,14 @@
 # - If the score is between 70 and 90 (inclusive), print 'Good job!'.
 # - If the score is less than 70, print 'Keep working hard!'.
 # If no score is provided (score equals 0), print 'No test score available'.
+student_score = int(input('What is your test score? '))
+
+if student_score > 0:
+    if student_score > 90:
+        print('Excellent!')
+    elif 70 <= student_score <= 90:
+        print('Good job!')
+    elif student_score < 70:
+        print('Keep working hard!')
+else:
+    print('No test score available')
