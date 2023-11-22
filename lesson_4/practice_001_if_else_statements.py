@@ -6,3 +6,7 @@ age = int(input('Enter your age: '))
 # otherwise print "You're not eligible to vote yet".
 
 # Remember about the indentation
+if age >= 18:
+    print('You\'re eligible to vote')
+else:
+    print('You\'re not eligible to vote yet')
