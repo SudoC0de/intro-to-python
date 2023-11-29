@@ -6,3 +6,11 @@
 # 5 => -5
 # -1 => -1
 
+number = float(input("Enter a number: "))
+
+if number < 0:
+    print(number)
+elif number > 0:
+    print(number * -1)
+else:
+    print(0)
