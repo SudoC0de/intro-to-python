@@ -12,7 +12,12 @@
 # Example:
 # Input: -3 => Output: 3
 # Input: 5 => Output: 5
+my_number = int(input("Enter a number: "))
 
+if my_number < 0:
+    my_number *= -1
+
+print(my_number)
 
 # ---------------------------------------------------------------------
 
@@ -23,7 +28,16 @@
 # If the number is divisible of 7, print “Go”
 # For numbers which are divisible of 3 and 7, print “BinGo”
 # Otherwise, print the original number: “{number} is just a number”
+another_number = int(input("Enter a number: "))
 
+if (another_number % 3 == 0) and (another_number % 7 == 0):
+    print("BinGo")
+elif another_number % 3 == 0:
+    print("Bin")
+elif another_number % 7 == 0:
+    print("Go")
+else:
+    print(f"{another_number} is just a number")
 
 # ---------------------------------------------------------------------
 
@@ -35,7 +49,16 @@
 #
 # Example:
 # x = 1, y = 5, z = 3 => Output: 3
+x = int(input("Enter number 1: "))
+y = int(input("Enter number 2: "))
+z = int(input("Enter number 3: "))
 
+if x < y < z or x > y > z:
+    print(f"Middle number: {y}")
+elif y < z < x or y > z > x:
+    print(f"Middle number: {z}")
+elif z < x < y or z > x > y:
+    print(f"Middle number: {x}")
 
 # ---------------------------------------------------------------------
 
@@ -47,7 +70,12 @@
 # It should print True if the number is a palindrome and False if it is not.
 #
 # Palindrome number: 121, 898
+palindrome_number = int(input("Enter a number: "))
 
+if str(palindrome_number) == str(palindrome_number)[::-1]:
+    print("Palindrome: True")
+else:
+    print("Palindrome: False")
 
 # ---------------------------------------------------------------------
 
@@ -61,4 +89,9 @@
 # sentence or word.
 #
 # Example: "tcefreP!" -> Perfect!
+review_comment = "tcefreP!"
+print(review_comment[-2::-1])
 
+#Used the example value to answer but here's the string fully reversed with the puncutation at the beginning as suggested by the challenge description
+review_comment = "!tcefreP"
+print(review_comment[::-1])
