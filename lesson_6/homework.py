@@ -33,6 +33,19 @@
 #     ???,
 # ]
 
+list_1 = []
+list_1.append("Jesse")
+list_1.append("Peter")
+list_1.append("Ben")
+
+list_2 = ["Jesse", "Peter", "Ben"]
+
+list_3 = [
+    ["Jesse", 33],
+    ["Peter", 32],
+    ["Ben", 29]
+]
+
 # ---------------------------------------------------------------------
 # Task 2. Retrieve elements from a List
 
@@ -45,20 +58,24 @@
 
 # Age of the last friend of the list
 # last_friend_age = list_3[???][???]
+print(list_2[1])
+print(list_3[2][1])
 
 # ---------------------------------------------------------------------
 # Task 3. Remove elements from a List
 
 # From the lists provided, remove the requested elements. Easy peazy.
 
-# cities = ["Houston", "Dallas", "Austin"]
-# fruits = ["apple", "banana", "orange"]
+cities = ["Houston", "Dallas", "Austin"]
+fruits = ["apple", "banana", "orange"]
 
 # Remove Austin from cities without using its index
 # cities.remove(???)
 
 # Remove the last element from fruits using negative indexes
 # ??? fruits[???]
+cities.remove("Austin")
+del fruits[-1]
 
 # ---------------------------------------------------------------------
 # Task 4. Verify if an element exists in a list
@@ -66,19 +83,23 @@
 # Given the provided list, write code that prints `YES` if the list contains the word `cheese`
 
 # The list
-# pantry = ["ham", "bread", "cheese"]
+pantry = ["ham", "bread", "cheese"]
 
 # Write code that prints YES if the list contains "cheese".
 
 # if ??? in ???:
     # print('YES')
+if 'cheese' in pantry:
+    print('YES')
+else:
+    print('NO')
        
 # ---------------------------------------------------------------------
 # Task 5. Sorting and Reversing
 
 # Given the provided list, write code that sorts and reverses it, as required.
 
-# numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
+numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
 
 # Write code that sorts the list in ascending order without disturbing the original.
 # sorted_numbers = ???(numbers)
@@ -92,6 +113,14 @@
 
 # Write code that reverses (flips) the list in place, modifying the original.
 # numbers.r???()
+numbers_sorted = sorted(numbers)
+
+# I'm a little unclear which answer is acceptable, so I included both. Both return different results.
+reversed_numbers = sorted(numbers, reverse=True)
+reversed_numbers2 = list(reversed(numbers))
+
+numbers.sort()
+numbers.reverse()
 
 # ---------------------------------------------------------------------
 # Task 6. Stitching and Slicing
@@ -106,14 +135,16 @@
 
 # Now, write python code that prints a slice from 'full_week' with the work days.
 
-# work_days = ['mon', 'tue',  'wed', 'thu', 'fri']
-# rest_days = ['sat', 'sun']
+work_days = ['mon', 'tue',  'wed', 'thu', 'fri']
+rest_days = ['sat', 'sun']
 
 # Concatenate work_days and rest_rays
 # full_week = ???
 
 # Slice with the work days
 # print(full_week[???])
+full_week = work_days + rest_days
+print(full_week[0:5:])
 
 # ---------------------------------------------------------------------
 # Task 7. Aggregators and Helpers
@@ -126,7 +157,7 @@
 # - How many times is the number 9 in the list?
 # - How many total elements are in the list?
 
-# numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
+numbers = [6, 34, 17, 9, 2, 11, 57, 9, 32]
 
 # Lowest number
 # print(???(numbers))
@@ -142,6 +173,11 @@
 
 # Total number of elements
 # print(???(numbers))
+print(min(numbers))
+print(max(numbers))
+print(sum(numbers))
+print(numbers.count(9))
+print(len(numbers))
 
 ## Exercises 🏋🏻
 
@@ -184,6 +220,18 @@
 
 # Show the user's biography
 # print(biography)
+user_data = []
+name = input("Name: ")
+age = input("Age: ")
+city = input("City: ")
+
+user_data.append(name)
+user_data.append(age)
+user_data.append(city)
+
+biography = f"Hailing from {user_data[2]}, {user_data[0]} is {user_data[1]} years old."
+
+print(biography)
 
 # ---------------------------------------------------------------------
 # Exercise 2. The Card Deck ♦️♥️♠️♣️
@@ -196,8 +244,8 @@
 # 🔥 Tip: You might want to stitch them together first.
 
 # Here are the card decks.
-# numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-# faces = ['J', 'Q', 'K']
+numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+faces = ['J', 'Q', 'K']
 
 # Concatenate them first.
 # card_deck = ???
@@ -221,6 +269,13 @@
 
 # Print out the EVEN numbers. No faces.
 # print(???)
+card_deck = numbers + faces
+print(card_deck[0:6])
+print(card_deck[(len(card_deck) - 3):len(card_deck):])
+print(card_deck[-1:-4:-1])
+print(card_deck[1:(len(card_deck) - 1):])
+print(card_deck[::3])
+print(card_deck[1:10:2])
 
 # ---------------------------------------------------------------------
 # Exercise 3. The Steps Tracker 👟
@@ -239,15 +294,22 @@
 # - What was the least number of steps you took on a day?
 # - What was the most number of steps you took on a day? 
 
-# monday = input('Steps for Monday: ')
-# tuesday = input('Steps for Tuesday: ')
-# wednesday = input('Steps for Wednesday: ')
-# thursday = input('Steps for Thursday: ')
-# friday = input('Steps for Friday: ')
-# saturday = input('Steps for Saturday: ')
-# sunday = input('Steps for Sunday: ')
+monday = int(input('Steps for Monday: '))
+tuesday = int(input('Steps for Tuesday: '))
+wednesday = int(input('Steps for Wednesday: '))
+thursday = int(input('Steps for Thursday: '))
+friday = int(input('Steps for Friday: '))
+saturday = int(input('Steps for Saturday: '))
+sunday = int(input('Steps for Sunday: '))
+steps = []
 
-# steps = [???]
+steps.append(monday)
+steps.append(tuesday)
+steps.append(wednesday)
+steps.append(thursday)
+steps.append(friday)
+steps.append(saturday)
+steps.append(sunday)
 
 # Steps on Wednesday
 # print(steps[???])
@@ -264,6 +326,11 @@
 
 # Highest number of steps
 # print(???(steps))
+print(f"Wednesday Steps: {steps[2]}")
+print(f"Total Work Week Steps: {sum(steps[0:5:])}")
+print(f"Weekly Steps: {sum(steps)}")
+print(f"Minimum Steps: {min(steps)}")
+print(f"Maximum Steps: {max(steps)}")
 
 # ---------------------------------------------------------------------
 # Exercise 4. Bonus Round: The Speech Reverser and Counter 🎤
@@ -298,3 +365,9 @@
 
 # Print the length of the words list
 # print(???(words))
+user_input = input("Enter a phrase: ")
+
+words = user_input.split()
+reversed_words = list(reversed(words))
+print(reversed_words)
+print(len(words))
