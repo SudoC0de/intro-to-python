@@ -16,6 +16,10 @@
 
 # for ??? in ???:
     # print(???)
+name = "Colin"
+
+for letter in name:
+    print(letter)
 
 # ---------------------------------------------------------------------
 # Task 2. Create a basic `for` loop with a counter
@@ -31,6 +35,13 @@
 
 # This should print '3'
 # print(counter)
+name = "Foster"
+counter = 0
+
+for letter in name:
+    counter += 1
+
+print(counter)
 
 # ---------------------------------------------------------------------
 # Task 3. Create a basic 'while' loop
@@ -52,6 +63,11 @@ This should print:
 # while counter ???:
     # counter = ???
     # print(counter)
+counter = 0
+
+while counter < 5:
+    counter += 1
+    print(counter)
 
 # ---------------------------------------------------------------------
 # Task 4. Exit a loop using break 🛑
@@ -68,6 +84,15 @@ This should print:
         # ???
         
     # print(counter)
+counter = 0
+
+while True:
+    counter += 1
+
+    if counter > 5:
+        break
+
+    print(counter)
 
 # ---------------------------------------------------------------------
 # Task 5. Range
@@ -85,6 +110,9 @@ This should print:
 
 # Odd numbers between 0 and 10: 1, 3, 5, 7, 9
 # range(???)
+print(list(range(6)))
+print(list(range(0,6)))
+print(list(range(1,10,2)))
 
 # ---------------------------------------------------------------------
 # Task 6. Using range() in a loop
@@ -98,6 +126,8 @@ This should print:
 
 
 # Exercises 🏋🏻
+for number in range(0,11,2):
+    print(number)
 
 # ---------------------------------------------------------------------
 # Exercise 1. Digits Only!
@@ -117,9 +147,19 @@ This should print:
 # for ??? in ???:
     # if ??? in ???:
     #     print(character)
+my_string = "s0m3 str1ng w1th numb3r5"
+numbers = "0123456789"
+answer = ""
 
+for letter in my_string:
+    if letter in numbers:
+        answer += letter + " "
+
+print(answer.strip())
 
 # Part two: Modify the code to print the first digit only
+print(answer.strip()[0]) # First digit from the left
+print(answer.strip()[len(answer) - 2:len(answer) - 1]) # First digit from the right
 
 # ---------------------------------------------------------------------
 # Exercise 2. Vowel Counter
@@ -138,6 +178,15 @@ This should print:
         # vowel_count += ???
 
 # print(f"The number of vowels in the quote is: {vowel_count}")
+quote = "Life is like riding a bicycle. To keep your balance, you MUST keep moving."
+vowel_count = 0
+
+for letter in quote:
+    if letter in "aeiouAEIOU":
+        vowel_count += 1
+
+print(f"Quote: \"{quote}\"")
+print(f"The number of vowels in the quote is: {vowel_count}")
 
 # ---------------------------------------------------------------------
 # Exercise 3. Sum of all Digits 🔢
@@ -156,6 +205,16 @@ This should print:
         # found_digits.a???(int(char))
 
 # print(f"The total sum of numbers in the string is: {sum(found_digits)}")
+mixed_string = "abc123xyz456"
+digits = "0123456789"
+numbers = []
+
+for character in mixed_string:
+    if character in digits:
+        numbers.append(int(character))
+
+print(f"Mixed String: {mixed_string}")
+print(f"Sum of numbers in string: {sum(numbers)}")
 
 # ---------------------------------------------------------------------
 # Exercise 4. Password Strength Checker
@@ -173,6 +232,14 @@ This should print:
         # strong_password_count ??? 1
 
 # print(f"Number of strong passwords: {strong_password_count}")
+passwords = ['Passw0rd', 'hello', 'strongPass1', 'weak']
+strong_password_counter = 0
+
+for password in passwords:
+    if len(password) >= 8:
+        strong_password_counter += 1
+
+print(f"Strong Passwords: {strong_password_counter}")
 
 # ---------------------------------------------------------------------
 # Exercise 5. The Red Crayon 🖍️
@@ -192,3 +259,11 @@ This should print:
     # index ??? 1
 
 # print("Found the Red crayon!")
+colors = ["Blue", "Yellow", "Green", "Red", "Purple", "Orange"]
+index = 0
+
+while colors[index] != "Red":
+    print(f"Found {colors[index]} crayon. Still looking for Red.")
+    index += 1
+
+print("Found the Red crayon!")
