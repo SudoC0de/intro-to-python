@@ -2,4 +2,10 @@
 # Print out the Fibonacci sequence until the given n-th in the sequence.
 # Example: n = 7,
 # Print out the sequence: 0, 1, 1, 2, 3, 5, 8
+fib_number = 10
+fib_sequence = [0, 1]
 
+for number in range(2,fib_number):
+    fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+
+print(fib_sequence)
