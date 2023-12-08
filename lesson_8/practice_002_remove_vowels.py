@@ -6,4 +6,12 @@
 # Examples:
 # "hello" --> "hll"
 # "goodbye" --> "gdby"
+string1 = "Hello World!"
+lower_vowels = "aeiou"
+answer = ""
 
+for character in string1:
+    if character not in lower_vowels:
+        answer += character
+
+print(answer)
