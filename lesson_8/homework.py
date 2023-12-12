@@ -15,6 +15,9 @@
 
 arr = [5, 2, 9, 1, 5, 6]
 # Your code here
+sorted_arr = sorted(arr)
+print(f"Smallest Number: {sorted_arr[0]}")
+print(f"Next Smallest Number: {sorted_arr[1]}")
 
 # ---------------------------------------------------------------------
 
@@ -32,6 +35,13 @@ arr = [5, 2, 9, 1, 5, 6]
 
 file_name = "My Summer Photos 2023"
 # Your code here
+new_file_name = ""
+
+for character in file_name:
+    if character != " ":
+        new_file_name += character
+
+print(f"New filename: {new_file_name}")
 
 # ---------------------------------------------------------------------
 
@@ -54,7 +64,12 @@ n = 5
 # Add the current value of 'i' to 'result'
 
 # Print the sum of integers from 1 to 'number'
+result = 0
 
+for number in range(1, n + 1):
+    result += number
+
+print(f"Sum of integers from 1 to {n}: {result}")
 
 # ---------------------------------------------------------------------
 
@@ -74,7 +89,15 @@ n = 5
 # Hints:
 # Use a for loop to iterate over every letter and conditional statements to check the condition
 # Use the count() method (think how it can help you solve this problem!)
+isogram = "cat"
+repeat_characters = False
 
+for character in isogram:
+    if isogram.count(character) > 1:
+        repeat_characters = True
+        break
+
+print(f"Is \"{isogram}\" an isogram? {not repeat_characters}")
 
 # ---------------------------------------------------------------------
 
@@ -107,3 +130,10 @@ string = "312"
 # and add the repeated character to 'result'
 
 # Print the final result
+result = ""
+
+for character in string:
+    current_num = int(character)
+    result += character * current_num
+
+print(f"Repeat Digits: {result}")
