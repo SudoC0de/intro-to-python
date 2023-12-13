@@ -8,11 +8,18 @@
 # is a palindrome or not.
 
 # Hint: The following code might be useful to determine if a word is a palindrome.
+def is_palindrome(word):
+    reversed_word = word[::-1]
 
-reversed_word = word[::-1]
+    if word == reversed_word:
+        return True
+    else:
+        return False
 
-if word == reversed_word:
-   # Word IS a palindrome
+word1 = input("Enter a word: ")
+answer = is_palindrome(word1)
+
+if answer == True:
+    print(f"\"{word1}\" is a palindrome")
 else:
-   # Word is NOT a palindrome
-
+    print(f"\"{word1}\" is not a palindrome")
