@@ -3,12 +3,18 @@
 
 # Basic Function
 # Define a basic function that only prints Hello. Create the definition using def and the call that executes it.
+def display_hello():
+    print("Hello")
 
+display_hello()
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Basic Function with Parameters
 # Define a basic function that prints a greeting taking a given name.
+def display_greeting(name):
+    print(f"Hello {name}")
 
+display_greeting("Colin")
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Basic Function with Default Values
@@ -20,6 +26,11 @@
 
 # Prints: Hello, Tom!
 # greeting('Tom')
+def dispplay_greeting_defaults(name="stranger"):
+    print(f"(Defaults) Hello, {name}")
+
+dispplay_greeting_defaults()
+dispplay_greeting_defaults("Colin")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -31,6 +42,11 @@
 
 # Prints (default values might be useful): The sum of 1 + 0 = 1
 # add(1)
+def sum(x=0,y=0):
+    print(f"Sum: {x + y}")
+
+sum(1,2)
+sum(1)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -44,6 +60,10 @@
 
 # Is there anything you can add to the line below, so the function also prints "Nelson Mandela"?
 # full_name("Mandela", "Nelson")
+def display_full_name(first,last):
+    print(f"Full Name: {first} {last}")
+
+display_full_name(last="Mandela",first="Nelson")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -53,6 +73,12 @@
 # list using a for loop.
 
 # Tip: Validator functions return True / False which we can use in conditionals to do things like print a message.
+word_list = ["word","two","returnfalsehere"]
+def word_length_check(word):
+    return len(word) > 8
+
+for word in word_list:
+    print(f"Is the length of \"{word}\" longer than 8 characters? {word_length_check(word)}")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -74,6 +100,17 @@
 # - Otherwise, the function should return the number.
 
 # Call the function here
+def fizzbuzz(number):
+    if number % 3 == 0 and number % 5 == 0:
+        print("FizzBuzz")
+    elif number % 3 == 0:
+        print("Fizz")
+    elif number % 5 == 0:
+        print("Buzz")
+
+fizzbuzz(15)
+fizzbuzz(9)
+fizzbuzz(10)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -95,6 +132,20 @@
 test_str1 = 'abcde'
 test_str2 = 'edcba'
 
+def anagram_check(word1="",word2=""):
+    if len(word1) == len(word2):
+        if sorted(word1) == sorted(word2):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+if anagram_check(test_str1,test_str2):
+    print(f"{test_str2} is an anagram of {test_str1}")
+else:
+    print(f"{test_str2} is not an anagram of {test_str1}")
+
 # ----------------------------------------------------------------------------------------------------------------------
 
 # Find Max number
@@ -113,6 +164,18 @@ test_str2 = 'edcba'
 # Test the function with a sample list of numbers.
 
 # Output should be the maximum number in the list.
+def find_max(numbers=[0]):
+    result = numbers[0]
+
+    for number in numbers:
+        if number > result:
+            result = number
+
+    return result
+
+number_list = [1,3,2,8,9,6]
+print(f"Number List: {number_list}")
+print(f"Max number: {find_max(number_list)}")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -128,3 +191,14 @@ test_str2 = 'edcba'
 # Define a function is_even_odd(number) here
 
 # Test the function calling it using a variety of numbers like: 1, 10, 5.5, 9
+def is_even_odd(number):
+    if number % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+list_of_numbers = [1,10,5.5,9]
+print(f"List of numbers: {list_of_numbers}")
+
+for number in list_of_numbers:
+    print(f"Number \"{number}\" is {is_even_odd(number)}")
