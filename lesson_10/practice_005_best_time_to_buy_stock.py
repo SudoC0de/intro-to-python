@@ -16,3 +16,14 @@
 
 # Pre-code
 def buy_and_sell_stock(prices):
+    max_profit = 0
+
+    for i in range(0, len(prices) - 1):
+        if prices[i] < prices[i + 1]:
+            max_profit += prices[i + 1] - prices[i]
+
+    return max_profit
+
+prices = [7,1,5,3,6,4]
+print(f"Prices: {prices}")
+print(f"Max Profit From Prices: {buy_and_sell_stock(prices)}")
