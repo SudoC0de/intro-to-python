@@ -17,3 +17,15 @@
 # Pre-code
 def below_arithmetical_mean(arr):
     arithmetical_mean = sum(arr) / len(arr)
+    result = []
+
+    for number in arr:
+        if number < arithmetical_mean:
+            result.append(number)
+
+    return result
+
+number_list = [1, 3, 5, 6, 4, 10, 2, 3]
+
+print(f"Number List: {number_list}")
+print(f"Number below mean: {below_arithmetical_mean(number_list)}")
