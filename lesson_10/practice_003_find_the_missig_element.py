@@ -19,3 +19,15 @@
 
 # Pre-code
 def find_missing_number(arr1, arr2):
+    arr1.sort()
+    arr2.sort()
+
+    for i in range(len(arr2)):
+        if arr1[i] != arr2[i]:
+            return arr1[i]
+
+    return arr1[-1]
+
+list1 = [1, 4, 6, 2, 5, 3, 7]
+list2 = [3, 7, 2, 1, 4, 6]
+print(f"Missing Number: {find_missing_number(list1,list2)}")
