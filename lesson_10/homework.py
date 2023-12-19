@@ -18,7 +18,15 @@
 
 def multiplication_of_three(number):
 # Your code here
+    result = 1
 
+    for integer in range(0, 3):
+        result *= (number % 10)
+        number //= 10
+
+    return result
+
+print(multiplication_of_three(349))
 
 # ---------------------------------------------------------------------
 
@@ -41,7 +49,16 @@ def sum_even_and_product_odd(arr):
     sum_even = 0
     product_odd = 1
     # Your code here
+    for number in arr:
+        if number % 2 == 0:
+            sum_even += number
+        else:
+            product_odd *= number
 
+    return [sum_even,product_odd]
+
+argument = [1, 2, 3, 4]
+print(sum_even_and_product_odd(argument))
 
 # ---------------------------------------------------------------------
 
@@ -57,7 +74,14 @@ def sum_even_and_product_odd(arr):
 
 def invert_list(arr):
 # Your code here
+    for index in range(len(arr)):
+        if arr[index] < 0 or arr[index] > 0:
+            arr[index] *= -1
 
+    return arr
+
+argument = [1, 5, -2, 4]
+print(invert_list(argument))
 
 # ---------------------------------------------------------------------
 
@@ -83,7 +107,19 @@ def max_diff(arr):
 # proceed with the rest of the code.
 
 # Your code here
+    min = arr[0]
+    max = arr[0]
 
+    for number in arr:
+        if number < min:
+            min = number
+        elif number > max:
+            max = number
+
+    return max - min
+
+argument = [3, 5, 7, 2]
+print(max_diff(argument))
 
 # ---------------------------------------------------------------------
 
@@ -104,4 +140,15 @@ def max_diff(arr):
 
 def sum_between_range(arr, min_val, max_val):
 # Your code here
+    result = 0
 
+    for number in arr:
+        if min_val <= number <= max_val:
+            result += number
+
+    return result
+
+argument = [3, 2, 1, 4, 10, 8, 7, 6, 9, 5]
+min_val = 3
+max_val = 7
+print(sum_between_range(argument, min_val, max_val))
