@@ -8,3 +8,11 @@ an imaginary person:
   nested dictionary.
 - Whether they’re married or not.
 """
+person = {
+    'name' : 'Joe',
+    'location' : {
+        'city' : 'Green Bay',
+        'state' : 'Wisconsin'
+    },
+    'married' : False
+}
