@@ -15,10 +15,10 @@ my_city = {
 }
 
 # What is the name of the city?
-print(???)
+print(my_city['name'])
 
 # How would you print the percentage of the Hispanic population?
-print(???)
+print(my_city['demographics_pct']['hispanic'])
 
 # What is the last airport of the list of airports?
-print(???)
+print(my_city['airports'][-1])
