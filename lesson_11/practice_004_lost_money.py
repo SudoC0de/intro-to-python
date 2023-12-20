@@ -14,3 +14,7 @@ wallets = {
 
 # Iterate over the wallets and check if each wallet has the 100.
 # When you find the 100, print the name of the person that has it.
+for name, wallet in wallets.items():
+    if 100 in wallet.keys():
+        print(f"{name} has a 100 bill in their wallet")
+        break
