@@ -12,4 +12,19 @@
 # - Loops
 
 # Bonus: Keep asking for words until the user types "end" OR an empty word.
+def word_input():
+    letter_count = {}
 
+    while True:
+        word = input("Input (\"End\" to quit): ")
+
+        if word == "End":
+            break
+        else:
+            for letter in set(word):
+                letter_count.update({(letter, word.count(letter))})
+
+            print(letter_count)
+            letter_count = {}
+
+word_input()
