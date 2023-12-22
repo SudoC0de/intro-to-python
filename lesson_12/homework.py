@@ -295,7 +295,8 @@ class Bird(Animal):
 
 class Fish(Animal):  # Inherited from "Mammal" here before instead of "Animal"
     def __init__(self, name, age, num_fins):
-        super().__init__(name, age)
+        self.name = name
+        self.age = age
         self.num_fins = num_fins
 
 tiger = Mammal("Tiger", 5, 4)
