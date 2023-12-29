@@ -13,4 +13,20 @@ ingredients = ["yeast", "flour", "meat"]
 # Output: [["yeast","flour"], ["flour","meat"]]
 
 def makeable_recipes(recipes, ingredients):
-# Your code here
+    # Your code here
+    complete_recipes = []
+
+    for recipe in recipes:
+        ingredient_limit = len(recipe)
+        ingredient_count = 0
+
+        for ingredient in recipe:
+            if ingredient in ingredients:
+                ingredient_count += 1
+
+            if ingredient_count == ingredient_limit:
+                complete_recipes.append(recipe)
+
+    return complete_recipes
+
+print(makeable_recipes(recipes,ingredients))
