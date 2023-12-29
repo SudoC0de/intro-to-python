@@ -10,4 +10,15 @@
 def two_sum(arr, target):
     if len(arr) < 2:
         return
-    # Your code here
+
+    sum_dict = {}
+
+    for num in arr:
+        num_add = target - num
+
+        if num_add in sum_dict:
+            return [num, num_add]
+        else:
+            sum_dict[num] = True
+
+print(two_sum([1, 2, 3, 7, 5], 10))
