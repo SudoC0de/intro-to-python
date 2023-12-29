@@ -19,5 +19,14 @@ def is_mountain_array(arr):
     if i == 1 or i == len(arr):
         return False
 
-# Check the decreasing sub-array
-# Your code here
+    # Check the decreasing sub-array
+    # Your code here
+    while i < len(arr) and arr[i - 1] > arr[i]:
+        i += 1
+
+    if i == 1 or i < len(arr):
+        return False
+    else:
+        return True
+
+print(is_mountain_array([3,5,4,3,2]))
