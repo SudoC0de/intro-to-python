@@ -17,15 +17,15 @@ def makeable_recipes(recipes, ingredients):
     complete_recipes = []
 
     for recipe in recipes:
-        ingredient_limit = len(recipe)
-        ingredient_count = 0
+        makeable = True
 
         for ingredient in recipe:
-            if ingredient in ingredients:
-                ingredient_count += 1
+            if ingredient not in ingredients:
+                makeable = False
+                break
 
-            if ingredient_count == ingredient_limit:
-                complete_recipes.append(recipe)
+        if makeable == True:
+            complete_recipes.append(recipe)
 
     return complete_recipes
 
