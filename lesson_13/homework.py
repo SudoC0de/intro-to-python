@@ -29,7 +29,15 @@
 def find_common_elements(list1, list2):
     common = []
     # Your code here
+    for number in list1:
+        if (number in list2) and (number not in common):
+            common.append(number)
 
+    return common
+
+list_1 = [1, 2, 3, 4, 5]
+list_2 = [4, 5, 6, 7, 8]
+print(find_common_elements(list_1,list_2))
 
 # ---------------------------------------------------------------------
 
@@ -65,7 +73,6 @@ test_ingredients = ["yeast", "flour", "meat"]
 test_result = find_makeable_recipes(test_recipes, test_ingredients)
 print(test_result)
 
-
 # ---------------------------------------------------------------------
 
 # Challenge 2
@@ -86,19 +93,28 @@ print(test_result)
 
 
 def find_missing_ingredients(recipes, ingredients):
-# Create an empty list to store the missing ingredients
+    # Create an empty list to store the missing ingredients
+    missing_ingredients = []
+    # In the outer loop iterate through each recipe in the list of recipes.
+    for recipe in recipes:
+        # In the inner loop check each ingredient in the recipe.
+        for ingredient in recipe:
+            # Check if the ingredient is not in the list of available ingredients
+            # and is not already in the list of missing ingredients.
+            if (ingredient not in ingredients) and (ingredient not in missing_ingredients):
+                # If both conditions are met, add the ingredient to the missing_ingredients list.
+                missing_ingredients.append(ingredient)
 
-# In the outer loop iterate through each recipe in the list of recipes.
+    # Return the list of missing ingredients required for all the recipes.
+    return missing_ingredients
 
-# In the inner loop check each ingredient in the recipe.
+recipes = [
+    ["yeast", "flour"],
+    ["bread", "meat", "flour"]
+]
+ingredients = ["yeast","bread"]
 
-# Check if the ingredient is not in the list of available ingredients
-# and is not already in the list of missing ingredients.
-
-# If both conditions are met, add the ingredient to the missing_ingredients list.
-
-# Return the list of missing ingredients required for all the recipes.
-
+print(find_missing_ingredients(recipes,ingredients))
 
 # ---------------------------------------------------------------------
 
@@ -127,27 +143,37 @@ def find_best_recipe(recipes, ingredients):
     max_used_ingredients = 0
 
     # Create an outer for loop to go through each recipe in the list of recipes.
+    for recipe in recipes:
+        # Create an empty list (used_ingredients) to store the ingredients we can use from this recipe.
+        used_ingredients = []
 
-    # Create an empty list (used_ingredients) to store the ingredients we can use from this recipe.
+        # Create an inner foor loop to look at each ingredient in this recipe.
+        for ingredient in recipe:
+            # Check if the ingredient is in our list of available ingredients.
+            if ingredient in ingredients:
+                # If it's available, add it to our list of used ingredients.
+                used_ingredients.append(ingredient)
 
-    # Create an inner foor loop to look at each ingredient in this recipe.
-
-    # Check if the ingredient is in our list of available ingredients.
-
-    # If it's available, add it to our list of used ingredients.
-
-    # Check if the current recipe uses more ingredients (using `len` to count)
-    # than the highest count we've recorded so far (max_used_ingredients).
-
-    # If the current recipe has a higher ingredient count, update max_used_ingredients.
-    # Then set this recipe as the new best.
+        # Check if the current recipe uses more ingredients (using `len` to count)
+        # than the highest count we've recorded so far (max_used_ingredients).
+        if len(used_ingredients) > max_used_ingredients:
+            # If the current recipe has a higher ingredient count, update max_used_ingredients.
+            max_used_ingredients = len(used_ingredients)
+            # Then set this recipe as the new best.
+            best_recipe = recipe
 
     # Finally, return the best recipe that uses the most ingredients.
+    return best_recipe
 
-    # Define the list of recipes and available ingredients.
-
-    # Call the function to find the best recipe and print the result.
-
+# Define the list of recipes and available ingredients.
+recipes = [
+    ["yeast","flour"],
+    ["bread","meat"],
+    ["flour","meat", "yeast"]
+]
+ingredients = ["yeast","flour", "meat", "salt"]
+# Call the function to find the best recipe and print the result.
+print(find_best_recipe(recipes,ingredients))
 
 # ---------------------------------------------------------------------
 
@@ -185,14 +211,44 @@ def find_best_recipe(recipes, ingredients):
 def find_peak_element(arr):
     n = len(arr) # Find out how many elements are in the array
 
-# Check for the edge case (less than 3 elements)
+    # Check for the edge case (less than 3 elements)
+    if n < 3:
+        return -1
 
-# Check the first and last element separately as they don't have neighbors
+    # Check the first and last element separately as they don't have neighbors
+    # Iterate over the range, excluding the first and last indices, as they lack one neighbor.
+    peak_index = -1
 
-# Iterate over the range, excluding the first and last indices, as they lack one neighbor.
+    for index in range(1, (len(arr) - 1)):
+        is_peak = True
 
-# Return -1 # if no peak element is found.
+        for nested_index in range(index - 1, -1, -1):
+            if arr[nested_index] > arr[index]:
+                is_peak = False
+                break
 
+        if is_peak == True:
+            for nested_index in range(index + 1, len(arr)):
+                if arr[nested_index] > arr[index]:
+                    is_peak = False
+                    break
+
+            if is_peak == True:
+                peak_index = index
+                break
+
+    # Return -1 # if no peak element is found.
+    if peak_index == -1:
+        return -1
+
+    return peak_index
+
+arr1 = [1, 3, 20, 4, 1, 0]
+arr2 = [1, 2, 3, 4, 5]
+arr3 = [5, 10, 20, 15]
+print(find_peak_element(arr1))
+print(find_peak_element(arr2))
+print(find_peak_element(arr3))
 
 # ---------------------------------------------------------------------
 
@@ -216,23 +272,28 @@ def find_peak_element(arr):
 # - Updating in Place: You can modify the original list as you find unique numbers
 # and move them to the correct position. Think of this position as where the next unique number should go.
 
-    def delete_duplicates(arr):
+def delete_duplicates(arr):
     # 'write_index' points to where the next unique element should be written.
-        write_index = 1
+    write_index = 1
 
     # Iterate over the list's length, starting from the second element because
     # the first element doesn't have a previous element to compare against.
-
-    # Compare the current element with its immediate previous element.
-
-    # If they're different, it's not a duplicate.
-    # Place the current element at the 'write_index' position.
-
-    # Then increment 'write_index' by 1 to prepare for the next unique element.
+    for index in range(1,len(arr)):
+        # Compare the current element with its immediate previous element.
+        if arr[index] != arr[index - 1]:
+            # If they're different, it's not a duplicate.
+            # Place the current element at the 'write_index' position.
+            arr[write_index] = arr[index]
+            # Then increment 'write_index' by 1 to prepare for the next unique element.
+            write_index += 1
 
     # Once you have shifted all unique elements to the left,
     # fill the remaining positions in the list with zeroes.
-        for i in range(write_index, len(arr)):
-            arr[i] = 0
+    for i in range(write_index, len(arr)):
+        arr[i] = 0
 
     # Return the modified list for visualization and the count of unique elements.
+    return arr
+
+input_list = [1, 2, 2, 3, 4, 4, 4, 5]
+print(delete_duplicates(input_list))
